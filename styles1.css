@@ -1,0 +1,507 @@
+/* styles.css */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body and Background */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* White text */
+  }
+  
+  /* Container to center the header content */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Logo Styles */
+  .logo a {
+    font-size: 22px; /* Adjust the text size of Parkit4U */
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+  
+  /* Navigation Styles */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  nav ul li a {
+    color: #bbb; /* Light gray for nav items */
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #f39c12; /* Highlight color on hover */
+  }
+  
+  /* Auth Buttons (CTA, Login, Sign Up) */
+  .auth-buttons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .cta-btn, .login-btn, .signup-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  /* CTA Button */
+  .cta-btn {
+    margin-left: 20px;
+    margin-right: 50px;
+    background-color: #f39c12; /* Orange color for call to action */
+    color: #121212; /* Dark text for contrast */
+  }
+  
+  
+  .cta-btn:hover {
+    background-color: #e67e22; /* Slightly darker orange on hover */
+  }
+  
+  /* Log In Button */
+  .login-btn {
+    background-color: transparent;
+    color: #bbb;
+    border: 2px solid #bbb;
+  }
+  
+  .login-btn:hover {
+    background-color: #bbb;
+    color: #121212;
+  }
+  
+  /* Sign Up Button */
+  .signup-btn {
+    background-color: transparent;
+    color: #f39c12;
+    border: 2px solid #f39c12;
+  }
+  
+  .signup-btn:hover {
+    background-color: #f39c12;
+    color: #121212;
+  }
+  
+  /* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background: url('background.jpg') no-repeat center center/cover; /* Replace with your background image */
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  /* Dark Overlay */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+    z-index: 1;
+  }
+  
+  /* Hero Content */
+  .hero-content {
+    position: relative;
+    z-index: 2; /* Ensures content appears above the overlay */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .cta-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+  }
+  
+  .cta-btn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Car Owner Button */
+  .car-owner-btn {
+    background-color: #f39c12; /* Orange color */
+    color: #121212; /* Dark text for contrast */
+  }
+  
+  .car-owner-btn:hover {
+    background-color: #e67e22; /* Slightly darker orange */
+  }
+  
+  /* Landowner Button */
+  .landowner-btn {
+    background-color: #16a085; /* Teal color */
+    color: #ffffff; /* White text */
+  }
+  
+  .landowner-btn:hover {
+    background-color: #1abc9c; /* Slightly lighter teal */
+  }
+
+  /* Features Section */
+.features {
+    padding: 50px 0;
+    background-color: #1a1a1a; /* Darker background for the features section */
+  }
+  
+  .features h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #f39c12; /* Orange color for the heading */
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+  
+  .feature-card {
+    background-color: #222; /* Dark card background */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px; /* Ensures that cards are responsive */
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px); /* Lift the card on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .feature-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #f39c12; /* Orange icon color */
+  }
+  
+  .feature-card h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card p {
+    font-size: 16px;
+    color: #bbb; /* Light gray text */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .feature-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .feature-card {
+      max-width: 90%;
+      margin-bottom: 20px;
+    }
+  }
+
+
+
+  * Container Styling */
+.container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    
+}
+/* Logo Styling */
+.logo {
+  display: flex; /* Use Flexbox to align items horizontally */
+  align-items: center; /* Vertically center the items (logo and text) */
+  justify-content: flex-start; /* Align items to the left */
+  gap: 10px; /* Add some space between the logo image and the text */
+}
+
+/* Styling the logo image */
+.logo img {
+    width: 120px; /* Set a fixed width for the logo */
+    height: auto;  /* Automatically adjust the height to maintain the aspect ratio */
+}
+.steps {
+  padding: 50px;
+  background-color: #1a1a1a; /* Dark background for consistency */
+  text-align: center;
+}
+
+.steps h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #f39c12; /* Orange heading */
+}
+
+.step {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #222;
+  border-radius: 8px;
+  display: inline-block;
+  width: 60%;
+  color: #ffffff;
+}
+
+
+/*from here we experiment */
+.how-it-works-page {
+  padding: 60px 20px;
+  background-color: black;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #f39c12;
+}
+
+.intro-text {
+  font-size: 1.2em;
+  margin-bottom: 150px;
+  margin-right: 30px;
+  color: #666;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+/* 
+.step-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+} */
+
+.step-card {
+  background: #222;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  background-color: #222;
+}
+
+
+.step-card h2 {
+  font-size: 1.5em;
+  color: #f39c12;
+}
+
+.step-card h3 {
+  margin-top: 10px;
+  color: white;
+}
+
+.step-card p {
+  font-size: 15px;
+  margin-top: 10px;
+  color: white;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in:nth-child(2) { animation-delay: 0.1s; }
+.fade-in:nth-child(3) { animation-delay: 0.2s; }
+.fade-in:nth-child(4) { animation-delay: 0.3s; }
+.fade-in:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/*try*/.contact-section {
+      max-width: 500px;
+      margin: 40px auto 20px auto;
+      padding: 30px;
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    .contact-section h2 {
+      margin-bottom: 20px;
+      color: #f39c12;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .contact-section form label {
+      display: block;
+      margin-top: 18px;
+      color: #ccc;
+      font-size: 1em;
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 7px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: #181818;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .contact-section textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .contact-section button {
+      margin-top: 22px;
+      padding: 10px 28px;
+      color: #fff;
+      background-color: #f39c12;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background .3s;
+    }
+
+    .contact-section button:hover {
+      background: #e67e22;
+    }
+
+    #formResponse {
+      margin-top: 16px;
+      color: #56fa12;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .map-container {
+      margin-top: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .contact-icons {
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .contact-icons a {
+      display: inline-block;
+      margin: 0 15px;
+      color: #f39c12;
+      background: #181818;
+      padding: 15px 30px;
+      border-bottom: 30px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 19px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .contact-icons a:hover {
+
+      background: #f39c12;
+      color: #121212;
+    }
+
+    .contact-icons i {
+      margin-right: 7px;
+   
+    }
+
+    @media (max-width: 700px) {
+
+      .container,
+      .contact-section {
+        max-width: 98vw;
+        padding: 8px 6px;
+      }
+
+      nav ul {
+        gap: 12px;
+      }
+
+      .contact-section {
+        padding: 12px;
+      }
+    }

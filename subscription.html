@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Header Section -->
+  <header>
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="#">  <img src="logo.png" alt="Parkit4U Logo" class="logo-img"> Parkit4U</a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="howitworks.html">How It Works</a></li>
+          <li><a href="car-owners.html">For Car Owners</a></li>
+          <li><a href="landowner.html">For Landowners</a></li>
+          <li><a href="subscription.html">Subscription Plans</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Call to Action & Login/Sign Up -->
+      <div class="auth-buttons">
+        <a href="#" class="cta-btn">Get Started</a>
+        <a href="login.html" class="login-btn">Log In</a>
+        <a href="signup.html" class="signup-btn">Sign Up</a>
+      </div>
+    </div>
+  </header>    
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subscription Plans</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .subscription-container {
+            background-color: #222;
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            color: #fff;
+        }
+        .subscription-container h1 {
+            color: #f39c12;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+        }
+        .form-group {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            color: #bbb;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 7px;
+            font-size: 1em;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: 1px solid #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <div class="subscription-container">
+        <h1>Select Plan</h1>
+        <div class="form-group">
+            <label for="plan">Subscription Duration:</label>
+            <select id="plan" name="plan">
+                <option value="1_week">1 Week</option>
+                <option value="2_week">2 Weeks</option>
+                <option value="1_month">1 Month</option>
+                <option value="6_month">6 Months</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="price">Price (INR):</label>
+            <select id="price" name="price" disabled>
+                <option value="150">Rs 150</option>
+                <option value="250">Rs 250</option>
+                <option value="500">Rs 500</option>
+                <option value="2500">Rs 2500</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        const planSelect = document.getElementById('plan');
+        const priceSelect = document.getElementById('price');
+        const priceMap = {
+            '1_week': '150',
+            '2_week': '250',
+            '1_month': '500',
+            '6_month': '2500',
+        };
+
+        function updatePrice() {
+            const selectedPlan = planSelect.value;
+            const priceValue = priceMap[selectedPlan];
+            priceSelect.value = priceValue;
+        }
+
+        planSelect.addEventListener('change', updatePrice);
+        updatePrice();
+    </script>
+</body>
+
+</html>
