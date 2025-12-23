@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Parkit4U</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="about.css">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const boxes = document.querySelectorAll('.highlight-box');
+  boxes.forEach((box, i) => {
+    setTimeout(() => {
+      box.classList.add('fade-in');
+    }, i * 200);
+  });
+});
+</script>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="Parkit4U Logo" class="logo-img"> Parkit4U</a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="howitworks.html">How It Works</a></li>
+          <li><a href="car-owners.html">For Car Owners</a></li>
+          <li><a href="landowner.html">For Landowners</a></li>
+          <li><a href="subscription.html">Subscription Plans</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="auth-buttons">
+        <a href="#" class="cta-btn">Get Started</a>
+        <a href="login.html" class="login-btn">Log In</a>
+        <a href="signup.html" class="signup-btn">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+
+<section class="about-section">
+  <div class="about-container">
+    <h2>About Us</h2>
+    <h3>We Simplify Parking for Everyone</h3>
+    <p>
+      Parkit4U is an innovative platform that connects car owners with landowners 
+      offering parking spaces. Our mission is to make parking stress-free, efficient, 
+      and affordable — while helping property owners earn effortlessly.
+    </p>
+
+    <div class="about-highlights">
+      <div class="highlight-box">
+        <i class="fas fa-bolt"></i>
+        <h4>Fast & Easy</h4>
+        <p>Book a spot instantly with just a few clicks.</p>
+      </div>
+      <div class="highlight-box">
+        <i class="fas fa-shield-alt"></i>
+        <h4>Safe & Secure</h4>
+        <p>We ensure trusted listings and verified users.</p>
+      </div>
+      <div class="highlight-box">
+        <i class="fas fa-map-marked-alt"></i>
+        <h4>Smart Locations</h4>
+        <p>Find the best parking near your destination easily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Parkit4U. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
