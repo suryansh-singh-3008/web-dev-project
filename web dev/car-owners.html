@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>For Car Owners - Parkit4U</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="car-owner.css" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="logo">
+      <a href="index.html"><img src="logo.png"> Parkit4U</a>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="howitworks.html">How It Works</a></li>
+        <li><a href="car-owners.html" class="active">For Car Owners</a></li>
+        <li><a href="landowner.html">For Landowners</a></li>
+        <li><a href="subscription.html">Subscription Plans</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="#" class="cta-btn">Get Started</a>
+      <a href="login.html" class="login-btn">Log In</a>
+      <a href="signup.html" class="signup-btn">Sign Up</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="car-owner-hero hero" style="background-image:url('private-parking-bg.jpg')">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Find Private House Parking Near You</h1>
+    <p>Secure, verified residential parking spaces</p>
+
+    <div class="search-bar">
+  <button type="button" onclick="getUserLocation()" class="cta-btn">
+    <i class="fas fa-location-arrow"></i> Use My Location
+  </button>
+</div>
+
+<div style="margin-top:10px;">
+  <label style="color:#f39c12;">
+    Search Radius: <span id="radius-value">10</span> km
+  </label>
+  <input
+    type="range"
+    id="radius-slider"
+    min="1"
+    max="10"
+    value="10"
+    step="1"
+    style="width:200px;"
+  />
+</div>
+
+
+    <p id="loc-status" style="margin-top:10px;color:#f39c12;"></p>
+
+    <!-- MAP -->
+    <div
+      id="map"
+      style="width:100%;max-width:900px;height:350px;margin:30px auto;border-radius:12px;display:none;"
+    ></div>
+  </div>
+</section>
+
+<!-- PARKING LIST -->
+<section class="parking-section">
+  <div class="parking-container">
+    <h2>Nearby Private House Parkings</h2>
+    <p class="section-subtitle">Real parking spaces added by landowners</p>
+
+    <!-- 🔥 EMPTY GRID (NO HARDCODED CARDS) -->
+    <div class="parking-grid">
+      <!-- Cards will be injected by JS -->
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Parkit4U. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- INLINE MAP LOGIC (UNCHANGED) -->
+<script>
+window.map = null;
+window.marker = null;
+window.userLat = null;
+window.userLng = null;
+
+
+function initMap(lat, lon) {
+  const mapDiv = document.getElementById("map");
+  mapDiv.style.display = "block";
+
+  if (!map) {
+    map = L.map("map").setView([lat, lon], 16);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+    marker = L.marker([lat, lon], { draggable: true }).addTo(map);
+
+    marker.on("dragend", () => {
+      const p = marker.getLatLng();
+      userLat = p.lat;
+      userLng = p.lng;
+      loadNearbyParking();
+    });
+  } else {
+    map.setView([lat, lon], 16);
+    marker.setLatLng([lat, lon]);
+  }
+}
+
+function getUserLocation() {
+  const status = document.getElementById("loc-status");
+  status.textContent = "📡 Detecting your location...";
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      window.userLat = pos.coords.latitude;
+      window.userLng = pos.coords.longitude;
+
+      initMap(window.userLat, window.userLng);
+      status.textContent = "✅ Location detected. Drag pin if needed.";
+      loadNearbyParking();
+    },
+    (err) => {
+      status.textContent = "❌ " + err.message;
+    },
+    { enableHighAccuracy: true }
+  );
+}
+</script>
+
+<!-- BACKEND LOGIC -->
+<script src="js/car-owner.js"></script>
+
+</body>
+</html>

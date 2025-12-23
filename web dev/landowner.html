@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Landowners - Parkit4U</title>
+
+  <!-- Existing CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landowner.css">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="logo.png" alt="Parkit4U Logo"> Parkit4U
+        </a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="howitworks.html">How It Works</a></li>
+          <li><a href="car-owners.html">For Car Owners</a></li>
+          <li><a href="landowner.html" class="active">For Landowners</a></li>
+          <li><a href="subscription.html">Subscription Plans</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="auth-buttons">
+        <a href="#" class="cta-btn">Get Started</a>
+        <a href="login.html" class="login-btn">Log In</a>
+        <a href="signup.html" class="signup-btn">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero landowner-hero">
+    <div class="hero-content">
+      <h1>Earn by Sharing Your Space</h1>
+      <p>Turn your unused driveway or private parking area into extra income effortlessly.</p>
+    </div>
+  </section>
+
+  <!-- Landowner Form Section -->
+  <section class="landowner-form-section">
+    <div class="form-container">
+      <h2><i class="fas fa-map-marker-alt"></i> Add Your Parking Space</h2>
+      <p class="form-subtext">
+        Provide details about your parking spot so car owners can easily find and book it.
+      </p>
+
+      <form class="landowner-form">
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Parking Address</label>
+          <input type="text" id="address" placeholder="Enter address or nearby landmark" required>
+        </div>
+
+        <!-- LOCATION SECTION -->
+        <div class="form-group">
+          <label>Pin Exact Parking Location</label>
+
+          <button
+            type="button"
+            class="cta-btn"
+            id="use-location-btn"
+            style="margin-bottom:10px;"
+          >
+            <i class="fas fa-location-arrow"></i> Use My Location
+          </button>
+
+          <!-- STATUS MESSAGE -->
+          <p
+            id="owner-loc-status"
+            style="color:#f39c12; font-size:0.9rem; margin-bottom:8px;"
+          ></p>
+
+          <p style="color:#bbb; font-size:0.9rem; margin-bottom:8px;">
+            Drag the pin to fine-tune the exact parking location.
+          </p>
+
+          <div id="owner-map" style="height:300px; border-radius:8px;"></div>
+        </div>
+
+        <!-- Hidden lat/lng -->
+        <input type="hidden" id="lat">
+        <input type="hidden" id="lng">
+
+        <div class="form-group">
+          <label for="space">Available Parking Spots</label>
+          <input type="number" id="space" placeholder="Number of spots" required>
+        </div>
+
+        <div class="form-group">
+          <label for="type">Parking Type</label>
+          <select id="type" required>
+            <option value="">Select type</option>
+            <option value="driveway">Driveway</option>
+            <option value="garage">Garage</option>
+            <option value="open-lot">Open Lot</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Hourly Rate (₹)</label>
+          <input type="number" id="price" placeholder="Enter rate per hour" required>
+        </div>
+
+        <div class="form-group">
+  <label for="photo">Parking Image URL</label>
+  <input
+    type="text"
+    id="photo"
+    placeholder="Paste image URL (Google Drive / Imgur / any public image link)"
+    required
+  />
+</div>
+
+
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-plus-circle"></i> Add Parking
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Parkit4U. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Landowner JS -->
+  <script src="js/land-owner.js"></script>
+
+</body>
+</html>
